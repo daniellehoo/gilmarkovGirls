@@ -63,7 +63,8 @@ function chooseNextWords (uniqueWords) {
 wordArray()
 transitionMatrix = createTransitionMatrix (splitText, uniqueWords)
 chooseNextWords(uniqueWords, transitionMatrix)
+
 // to do:
 // 1. choose random word from uniqueWords - uniqueWords[i]
-// 2. go to i^th row of transitionMatrix
+// 2. go to i^th row of transitionMatrix (passChooseNextWords as a callback function to createTransitionMatrix and pass in transitionMatrix as a variable)
 // 3. choose weighted next word from i^th row probabilities
