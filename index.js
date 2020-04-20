@@ -50,7 +50,7 @@ function createTransitionMatrix (splitText, uniqueWords) {
       rowSum != 0 ? (transitionMatrix[i][j] = value / rowSum) : null
     })
   })
-  return(transitionMatrix)
+  console.log(transitionMatrix)
 }
 
 function chooseNextWords (uniqueWords) {
@@ -61,8 +61,8 @@ function chooseNextWords (uniqueWords) {
 }
 
 wordArray()
-transitionMatrix = createTransitionMatrix (splitText, uniqueWords)
-chooseNextWords(uniqueWords, transitionMatrix)
+// transitionMatrix = createTransitionMatrix (splitText, uniqueWords)
+// chooseNextWords(uniqueWords, transitionMatrix)
 
 // to do:
 // 1. choose random word from uniqueWords - uniqueWords[i]
