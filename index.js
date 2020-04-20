@@ -2,62 +2,68 @@
 const quotes =
   'I need coffee. Extra strong. Double caf. Triple caf. No, forget the caf. Throw in the whole cow and serve it to this man right here!'
 
+//declare global variables
+//let transitionMatrix = [];
+
 // to do: map over array of quotes
 // convert to lowercase, split text on spaces and save as array
 // filter out duplicate words
 function wordArray () {
   const splitText = quotes.toLowerCase().split(/\s*\b\s*/)
   const uniqueWords = [...new Set(splitText)]
-  // console.log(uniqueWords)
   createTransitionMatrix(splitText, uniqueWords)
+  //chooseNextWords(uniqueWords)
 }
 
 // create an empty matrix corresponding to length of the unique words array
-function createTransitionMatrix (splitText, uniqueWords) {
-  //let transitionMatrix = Array(uniqueWords.length).fill(
-    //Array(uniqueWords.length).fill(0)
-  //)
-  let transitionMatrix;
-  for (let i = 0; i < uniqueWords.length; i++){
-    for (let j = 0; j < uniqueWords.length; j++){
-      transitionMatrix[i][j] = 0
-    }
-  }
-  console.log(transitionMatrix)
-
-  for (let x = 0; x < splitText.length; x++){
-    let nextWordIndex = splitText[x + 1]
-    console.log('following word', splitText[x + 1])
-    let nextWordColumn = uniqueWords.indexOf(nextWordIndex)
-    let nextWordRow = uniqueWords.indexOf(splitText[x])
-    console.log('nextWordRow', nextWordRow)
-    console.log('nextWordColumn', nextWordColumn)
-    console.log(x, transitionMatrix[nextWordRow][nextWordColumn]+=1)
-    document.write("\n")
-  }
-
-  // splitText.map((word, index) => {
-  //   let nextWordIndex = splitText[index + 1]
-  //   let nextWordColumn = uniqueWords.indexOf(nextWordIndex)
-  //   console.log('nextWordColumn', nextWordColumn)
-  //   let nextWordRow = uniqueWords.indexOf(word)
-  //   console.log('nextWordRow', nextWordRow)
-  //   transitionMatrix[0][1] = 1
-  //   // console.log('transitionmatrix', transitionMatrix[nextWordRow][nextWordColumn]+=1)
-  // })
-  
-  console.log(transitionMatrix)
-}
-
-wordArray()
-
-// for each word i in splittext:
+// for each word i in splitText:
 //   1. find the following (i+1)^th word (entry) splitText[i + 1]
 //   2. for the i^th and (i+1)^th words, find the index in uniqueWords - j and k
 //   3. add 1 to the element of transitionmatrix[j][k]
+function createTransitionMatrix (splitText, uniqueWords) {
+  let transitionMatrix = new Array(uniqueWords.length)
+  for (i = 0; i < uniqueWords.length; i++)
+    transitionMatrix[i] = new Array(uniqueWords.length)
 
-// // to do:
-// 1. for each word i in splitText, find the following (i+1)^th word (entry) splitText[i + 1]
-// and return as new array
-// 2. a. for the i^th and (i+1)^th words, find the index in uniqueWords - j and k
-// 2. b. add 1 to the element of transitionmatrix[j][k]
+  for (i = 0; i < uniqueWords.length; i++) {
+    for (j = 0; j < uniqueWords.length; j++) {
+      transitionMatrix[i][j] = 0
+    }
+  }
+
+  for (let x = 0; x < splitText.length - 1; x++) {
+    let nextWordIndex = splitText[x + 1]
+    let nextWordColumn = uniqueWords.indexOf(nextWordIndex)
+    let nextWordRow = uniqueWords.indexOf(splitText[x])
+    transitionMatrix[nextWordRow][nextWordColumn]++
+    document.write('\n')
+  }
+
+  // 1. build probability matrix (convert transition matrix to probability)
+  // 1 a. find sum of row--loop through each element
+  // 1 b. divide each element by the sum of its row
+  // 1 c. replace values in matrix
+  transitionMatrix.map((row, i) => {
+    let reducer = (accumulator, currentValue) => accumulator + currentValue
+    let rowSum = row.reduce(reducer)
+    row.map((value, j) => {
+      rowSum != 0 ? (transitionMatrix[i][j] = value / rowSum) : null
+    })
+  })
+  return(transitionMatrix)
+}
+
+function chooseNextWords (uniqueWords) {
+  let index = Math.floor(Math.random() * uniqueWords.length)
+  let randomFirstWord = uniqueWords[index]
+  console.log('randomFirstWord', randomFirstWord)
+  // console.log(transitionMatrix[index])
+}
+
+wordArray()
+transitionMatrix = createTransitionMatrix (splitText, uniqueWords)
+chooseNextWords(uniqueWords, transitionMatrix)
+// to do:
+// 1. choose random word from uniqueWords - uniqueWords[i]
+// 2. go to i^th row of transitionMatrix
+// 3. choose weighted next word from i^th row probabilities
