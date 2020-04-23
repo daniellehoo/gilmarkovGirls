@@ -57,12 +57,14 @@ function createTransitionMatrix (splitText, uniqueWords) {
 
 // 1. choose random word from uniqueWords - uniqueWords[i]
 // 2. go to i^th row of transitionMatrix
+// 3. choose weighted next word from i^th row probabilities
+// 4. loop through for desired number of words
 function chooseNextWords (uniqueWords, transitionMatrix) {
   let index = Math.floor(Math.random() * uniqueWords.length)
   let randomFirstWord = uniqueWords[index]
   console.log(randomFirstWord)
-
   let numberOfWords = 0
+
   //start while loop 
   while(numberOfWords < 10){
     let weightedArr = []
@@ -83,8 +85,8 @@ function chooseNextWords (uniqueWords, transitionMatrix) {
 }
 
 wordArray()
-// transitionMatrix = createTransitionMatrix (splitText, uniqueWords)
-// chooseNextWords(uniqueWords, transitionMatrix)
+
 
 // to do:
-// 3. choose weighted next word from i^th row probabilities
+// look at bigger sequences of words before predicting next word (right now, we've looked at one word at a time)
+// get more quotes!
