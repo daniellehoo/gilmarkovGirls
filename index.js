@@ -50,14 +50,36 @@ function createTransitionMatrix (splitText, uniqueWords) {
       rowSum != 0 ? (transitionMatrix[i][j] = value / rowSum) : null
     })
   })
-  console.log(transitionMatrix)
+  // console.log(transitionMatrix)
+
+  chooseNextWords(uniqueWords, transitionMatrix)
 }
 
-function chooseNextWords (uniqueWords) {
+// 1. choose random word from uniqueWords - uniqueWords[i]
+// 2. go to i^th row of transitionMatrix
+function chooseNextWords (uniqueWords, transitionMatrix) {
   let index = Math.floor(Math.random() * uniqueWords.length)
   let randomFirstWord = uniqueWords[index]
-  console.log('randomFirstWord', randomFirstWord)
-  // console.log(transitionMatrix[index])
+  console.log(randomFirstWord)
+
+  let numberOfWords = 0
+  //start while loop 
+  while(numberOfWords < 10){
+    let weightedArr = []
+    transitionMatrix[index].map((probability, i) => {
+      if (probability != 0) {
+        for (let j = 1; j <= probability * 10; j++) {
+          weightedArr.push(uniqueWords[i])
+        }
+      }
+    })
+    //console.log(weightedArr)index
+    let nextWord = weightedArr[Math.floor(Math.random() * weightedArr.length)]
+    index = uniqueWords.indexOf(nextWord)
+    //console.log('indexOfNextWord', index)
+    console.log(nextWord)
+    numberOfWords += 1
+  }
 }
 
 wordArray()
@@ -65,6 +87,4 @@ wordArray()
 // chooseNextWords(uniqueWords, transitionMatrix)
 
 // to do:
-// 1. choose random word from uniqueWords - uniqueWords[i]
-// 2. go to i^th row of transitionMatrix (passChooseNextWords as a callback function to createTransitionMatrix and pass in transitionMatrix as a variable)
 // 3. choose weighted next word from i^th row probabilities
