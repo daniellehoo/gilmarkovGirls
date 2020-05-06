@@ -14,10 +14,16 @@ function wordArray () {
   const uniqueWords = [...new Set(splitText)]
   const blockText = [];
   splitText.map((block, index) => {
-  index <= splitText.length - k ?
+    // console.log(splitText.slice(index, index + k))
+// console.log(splitText.length)
+// console.log(splitText.length -k)
+
+  index <= splitText.length - k -1 ?
     blockText.push(splitText.slice(index, index+k)) : null
   })
   const uniqueBlockWords = [...new Set(blockText)]
+  console.log(blockText)
+  // console.log(uniqueBlockWords)
   createTransitionMatrix(splitText, uniqueWords, blockText, uniqueBlockWords)
 }
 
@@ -49,7 +55,7 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
     // let nextWordIndex = splitText[splitText.indexOf(blockText[x].slice(k-1,k)) + 1]
     let nextWordIndex = splitText[splitText.indexOf(blockText[x].slice(k-1,k)[0]) + 1] 
 
-    console.log(nextWordIndex)
+    // console.log(nextWordIndex)
     // let nextWordIndex = splitText[x + 1]
     let nextWordColumn = uniqueWords.indexOf(nextWordIndex)
     let nextWordRow = uniqueBlockWords.indexOf(blockText[x])
@@ -69,6 +75,7 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
     })
   })
   console.log(transitionMatrix)
+  // console.log('uniqueBlockWords', uniqueBlockWords)
 
   chooseNextWords(uniqueWords, uniqueBlockWords, transitionMatrix)
 }
@@ -78,11 +85,13 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
 // 3. choose weighted next word from i^th row probabilities
 // 4. loop through for desired number of words
 function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
+  console.log(uniqueBlockWords)
   let index = Math.floor(Math.random() * uniqueBlockWords.length)
-  let randomFirstWord = uniqueBlockWords[index]
-  let uniqueBlockWordsArr = uniqueBlockWords
-  console.log(randomFirstWord)
-  console.log(uniqueBlockWordsArr)
+  let randomFirstBlock = uniqueBlockWords[index]
+  // let uniqueBlockWordsArr = uniqueBlockWords
+  console.log(randomFirstBlock)
+  //console.log(uniqueBlockWordsArr)
+  //console.log("index=", index)
   let numberOfWords = 0
   
   //start while loop 
@@ -95,16 +104,18 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
         }
       }
     })
-    //console.log(weightedArr)index
+    console.log(weightedArr)
     let nextWord = weightedArr[Math.floor(Math.random() * weightedArr.length)]
-    uniqueBlockWordsArr[index].shift()
-    console.log(uniqueBlockWordsArr[index])
-    uniqueBlockWordsArr[index].push(nextWord) 
-    console.log(uniqueBlockWordsArr[index])
-    index = uniqueBlockWordsArr.indexOf(uniqueBlockWordsArr[index])
-    console.log('indexOfNextWord', index)
+    console.log("nextWord", nextWord)
+    randomFirstBlock.shift()
+    randomFirstBlock.push(nextWord) 
+    // index = uniqueBlockWordsArr.indexOf(uniqueBlockWordsArr[index])
+    // index =  uniqueBlockWordsArr
+    // console.log('indexOfNextWord', index)
     // console.log(nextWord)
-
+    console.log('randomFirstBlock', randomFirstBlock)
+    index = uniqueBlockWords.indexOf(randomFirstBlock)
+    console.log("index of next word", index)
     numberOfWords += 1
   }
 }
@@ -114,4 +125,5 @@ wordArray()
 
 // to do:
 // update chooseNextWords to give us next word after unique block words (update random index for each instance)
+// something weird on lines 17-22
 // get more quotes!
