@@ -14,16 +14,12 @@ function wordArray () {
   const uniqueWords = [...new Set(splitText)]
   const blockText = [];
   splitText.map((block, index) => {
-    // console.log(splitText.slice(index, index + k))
-// console.log(splitText.length)
-// console.log(splitText.length -k)
-
-  index <= splitText.length - k -1 ?
+    // console.log(blockText, index)
+  index <= splitText.length - (k - 1) ?
     blockText.push(splitText.slice(index, index+k)) : null
   })
   const uniqueBlockWords = [...new Set(blockText)]
   console.log(blockText)
-  // console.log(uniqueBlockWords)
   createTransitionMatrix(splitText, uniqueWords, blockText, uniqueBlockWords)
 }
 
@@ -87,15 +83,19 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
 function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
   console.log(uniqueBlockWords)
   let index = Math.floor(Math.random() * uniqueBlockWords.length)
-  let randomFirstBlock = uniqueBlockWords[index]
+  console.log("index", index)
+  console.log("uniqueBlockWords[index]", uniqueBlockWords[index])
+  let randomFirstBlock = []
+  randomFirstBlock = uniqueBlockWords[index].slice()
   // let uniqueBlockWordsArr = uniqueBlockWords
-  console.log(randomFirstBlock)
+  console.log("let's start from block", randomFirstBlock)
   //console.log(uniqueBlockWordsArr)
   //console.log("index=", index)
   let numberOfWords = 0
   
   //start while loop 
   while(numberOfWords < 10){
+    // for(let numberOfWords=0; numberOfWords < 10; numberOfWords++){
     let weightedArr = []
     transitionMatrix[index].map((probability, i) => {
       if (probability != 0) {
@@ -104,18 +104,34 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
         }
       }
     })
-    console.log(weightedArr)
+    console.log("here's what we choose from:", weightedArr)
     let nextWord = weightedArr[Math.floor(Math.random() * weightedArr.length)]
-    console.log("nextWord", nextWord)
-    randomFirstBlock.shift()
-    randomFirstBlock.push(nextWord) 
+    console.log("the next word is", nextWord)
+    
+    let newArray = randomFirstBlock.slice(1)
+    newArray.push(nextWord)
+    //randomFirstBlock.shift()
+    //randomFirstBlock.push(nextWord) 
+    randomFirstBlock = newArray.slice()
+
     // index = uniqueBlockWordsArr.indexOf(uniqueBlockWordsArr[index])
     // index =  uniqueBlockWordsArr
     // console.log('indexOfNextWord', index)
     // console.log(nextWord)
-    console.log('randomFirstBlock', randomFirstBlock)
-    index = uniqueBlockWords.indexOf(randomFirstBlock)
-    console.log("index of next word", index)
+    console.log('the next block is', randomFirstBlock)
+    for (let i = 0; i < uniqueBlockWords.length; i++){
+      //console.log("uniqueBlockWords[i]=", uniqueBlockWords[i])
+      //console.log("randomFirstBlock=", randomFirstBlock)
+      if (uniqueBlockWords[i] == randomFirstBlock){
+        index = i
+        //console.log("it's found it!")
+        return true
+      }
+    }
+    //index = uniqueBlockWords.indexOf(randomFirstBlock)
+    //console.log("uniqueBlockWords:", uniqueBlockWords)
+    //console.log("randomFirstBlock:", randomFirstBlock)
+    //console.log("the index of the next block is", index)
     numberOfWords += 1
   }
 }
@@ -125,5 +141,5 @@ wordArray()
 
 // to do:
 // update chooseNextWords to give us next word after unique block words (update random index for each instance)
-// something weird on lines 17-22
+// need to choose the correct next block of words (line 107)
 // get more quotes!
