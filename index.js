@@ -19,7 +19,7 @@ function wordArray () {
     blockText.push(splitText.slice(index, index+k)) : null
   })
   const uniqueBlockWords = [...new Set(blockText)]
-  console.log(blockText)
+  // console.log(blockText)
   createTransitionMatrix(splitText, uniqueWords, blockText, uniqueBlockWords)
 }
 
@@ -32,15 +32,16 @@ function wordArray () {
 //   3. add 1 to the element of transitionmatrix[j][k]
 function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockWords) {
   let transitionMatrix = new Array(uniqueBlockWords.length)
-  for (i = 0; i < uniqueBlockWords.length; i++)
+  for (let i = 0; i < uniqueBlockWords.length; i++)
     transitionMatrix[i] = new Array(uniqueWords.length)
 
-  for (i = 0; i < uniqueBlockWords.length; i++) {
-    for (j = 0; j < uniqueWords.length; j++) {
+  for (let i = 0; i < uniqueBlockWords.length; i++) {
+    for (let j = 0; j < uniqueWords.length; j++) {
       transitionMatrix[i][j] = 0
     }
   }
 
+  // SOMETHING WRONG LINES 44-60 !!! 
   for (let x = 0; x < blockText.length - 1; x++) {
     // let nextWordIndex = splitText.indexOf(splitText.indexOf(blockText[x][k])+1)
     // find last word of each block: blockText[x][k]
@@ -58,7 +59,8 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
     transitionMatrix[nextWordRow][nextWordColumn]++
     document.write('\n')
   }
-
+  console.log("before normalising matrix", transitionMatrix)
+  
   // 1. build probability matrix (convert transition matrix to probability)
   // 1 a. find sum of row--loop through each element
   // 1 b. divide each element by the sum of its row
@@ -70,7 +72,7 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
       rowSum != 0 ? (transitionMatrix[i][j] = value / rowSum) : null
     })
   })
-  console.log(transitionMatrix)
+  //console.log(transitionMatrix)
   // console.log('uniqueBlockWords', uniqueBlockWords)
 
   chooseNextWords(uniqueWords, uniqueBlockWords, transitionMatrix)
@@ -81,18 +83,18 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
 // 3. choose weighted next word from i^th row probabilities
 // 4. loop through for desired number of words
 function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
-  console.log(uniqueBlockWords)
+  // console.log(uniqueBlockWords)
   let index = Math.floor(Math.random() * uniqueBlockWords.length)
-  console.log("index", index)
-  console.log("uniqueBlockWords[index]", uniqueBlockWords[index])
+  //console.log("index", index)
+  //console.log("uniqueBlockWords[index]", uniqueBlockWords[index])
   let randomFirstBlock = []
   randomFirstBlock = uniqueBlockWords[index].slice()
   // let uniqueBlockWordsArr = uniqueBlockWords
-  console.log("let's start from block", randomFirstBlock)
+  console.log(randomFirstBlock)
   //console.log(uniqueBlockWordsArr)
   //console.log("index=", index)
   let numberOfWords = 0
-  
+  //let valid = 0
   //start while loop 
   while(numberOfWords < 10){
     // for(let numberOfWords=0; numberOfWords < 10; numberOfWords++){
@@ -101,14 +103,21 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
       if (probability != 0) {
         for (let j = 1; j <= probability * 10; j++) {
           weightedArr.push(uniqueWords[i])
+          console.log('uniqueWords', uniqueWords[i])
         }
       }
     })
-    console.log("here's what we choose from:", weightedArr)
+    //console.log("here's what we choose from:", weightedArr)
     let nextWord = weightedArr[Math.floor(Math.random() * weightedArr.length)]
-    console.log("the next word is", nextWord)
+    //console.log(nextWord)
+
+    //if ((nextWord == '.' || nextWord == '!' || nextWord == '?') && numberOfWords >= 10){
+      //valid = 1
+      //break
+    //}
     
     let newArray = randomFirstBlock.slice(1)
+    // console.log('newArray', newArray)
     newArray.push(nextWord)
     //randomFirstBlock.shift()
     //randomFirstBlock.push(nextWord) 
@@ -122,10 +131,11 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
     for (let i = 0; i < uniqueBlockWords.length; i++){
       //console.log("uniqueBlockWords[i]=", uniqueBlockWords[i])
       //console.log("randomFirstBlock=", randomFirstBlock)
-      if (uniqueBlockWords[i] == randomFirstBlock){
+      //if (uniqueBlockWords[i] == randomFirstBlock){
+      if (JSON.stringify(uniqueBlockWords[i]) == JSON.stringify(randomFirstBlock)){ 
         index = i
         //console.log("it's found it!")
-        return true
+        break
       }
     }
     //index = uniqueBlockWords.indexOf(randomFirstBlock)
