@@ -1,22 +1,21 @@
 import bs4
-"""
 import urllib.request
-url = "https://en.wikipedia.org/wiki/List_of_Gilmore_Girls_episodes"
+url = "https://quotecatalog.com/communicator/lorelai-gilmore"
 page = urllib.request.urlopen(url)
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(page, "lxml")
-#print(soup.prettify())
-#print(soup.title.string, "\n")
 
 A = []
-
-for right_table in soup.find_all(class_='summary'):
-    if right_table.find('a') == None:
-        cells = right_table.find(text = True)
-        cells = cells.strip('"')
-    else:
-        cells = right_table.find('a').contents[0]
+for right_table in soup.find_all(class_='block p-5 font-serif md:text-lg quoteCard__blockquote'):
+    cells = right_table.find(text = True)
     A.append(cells)
 
-print(A)
-"""
+quotes = []
+for el in A:
+    el = el.strip("\n")
+    el = el.strip("\t")
+    el = el.replace('“', '')
+    el = el.replace('”', '')
+    if el != "'My God, I hate her.'":
+        quotes.append(el)
+print(quotes)
