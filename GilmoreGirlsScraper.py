@@ -1,5 +1,6 @@
 import bs4
 import urllib.request
+import json
 url = "https://quotecatalog.com/communicator/lorelai-gilmore"
 page = urllib.request.urlopen(url)
 from bs4 import BeautifulSoup
@@ -18,4 +19,5 @@ for el in A:
     el = el.replace('”', '')
     if el != "'My God, I hate her.'":
         quotes.append(el)
+quotes = "\\n".join(quotes)
 print(quotes)
