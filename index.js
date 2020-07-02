@@ -2,7 +2,7 @@
 //const quotes =
   //'I need coffee. Extra strong. Double caf. Triple caf. No, forget the caf. Throw in the whole cow and serve it to this man right here!'
 
-const quotes = "Hey, I have a New Year's resolution for you: Become more cynical and self-absorbed.\nYou weren't wearing your 'hot and wealthy' sandwich board were you, Mom?\nOh! Dinner with Rory! How delightful! Well, spit-spot. Alert the corgis.\nYou can't watch \nIf you're going to throw your life away, he'd better have a motorcycle.\nThere's plenty to do tonight that we can be mortified about tomorrow.\nMy mother is fast asleep in my bed, clutching my Hello Kitty pillow, and yes, I have pictures.\nOh yes, it was beautiful in there. We should commemorate it with an oil painting or a severed head or something.\nSo not only did you go to a cop-raided party, but you started the raid? \nI need caffeine. Whatever form you've got, I haven't had any all day. I'll drink it, shoot it, eat it, snort it, whatever form it's in, gimme.\nCheeseburger, onion rings, and a list of people who killed their parents and got away with it. I’m looking for heroes.\nI love pudding. I worship it. I have a bowl up on the mantel at home with the Virgin Mary, a glass of wine, and a dollar bill next to it.\nWe need you to look at Kirk's butt. He ran into some rose bushes, and he's got some thorns stuck in it, and I thought of you.\nWhen I have made one zillion dollars from my rocket gum invention you will eat those words! Or rather you will chew those words and blow a bubble with them.\nWhy is she taking our coats and pouring us drinks? Did you win her in a poker game?\nSeventy-five thousand dollars? Oh my God, that’s like 150 pairs of Jimmy Choos.\nHey, tomorrow, if you have time, I'm planning on despising everyone who says 'Hey, how's it going?'\nThere have been very few moments in my life where I have actually wished I had one of those enormous crème pies you can just smash in somebody's face. But this is definitely one of them.\nDon't let his family see you. Spiders are vindictive. And this was a really big spider. I think it had a gun.\nMy life stinks. Hey, let’s look into each other’s eyes and say 'I wish I were you' at exactly the same time — maybe we’ll pull a 'Freaky Friday.'\nI stop drinking coffee, I stop doing the standing and the walking and the words-putting-into-sentence doing.\nIt feels… right. Such a long time getting here… sometimes it’s just a journey, you know?\nI thought I knew exactly  what I wanted, where I was going, what I was doing and why I was doing. But lately, things seem hazier.\nIt's all any of us wants, to find a nice person to hang out with until we drop dead. Not a lot to ask!\nThis is America, where we unapologetically bastardize other countries' cultures in a gross quest for moral and military supremacy.\nHe’s like a superhero, but his power is that you can’t remember him no matter how much time you spend with him. Kind of like every Marvel movie ever.\nIt's my life, Rory. I went through all this effort for many, many years making sure people only knew what I wanted them to know, and now you're going to lay it all out in a book?\nI sat down and it just came out. Flew out. It's like this story has been sitting in my brain for years, taking up space.\nLife’s been pretty good to you. It was your turn for a few curveballs. Peeks and valley’s, kid.\nIf it was physically possible to make love to a hot beverage, this would be the one.\nAs long as everything is exactly the way I want it, I'm totally flexible.\nDid anyone ever think that maybe Sylvia Plath wasn't crazy, she was just cold?\nI don't like problems. I avoid them when I can and I don't like people pointing them out to me.\nI would like a cheeseburger, with a side of cheeseburger, and see if they can make me a cheeseburger smoothie.\n'Hello' is the appropriate way to indicate you're open to a social engagement. Unless, however, you're approaching a weasel. Then I believe the proper signal is just to offer him your hindquarters.\nEverything in my life has something to do with coffee. I believe in a former life, I was coffee.\nWhen I think of blistering thirty-degree burns, I also think of my mother.\nHe called me ‘hot plates.’ He sooooo likes me.\nHey, did you know about urine mints?\n"
+const quotes = "Hey, I have a New Year's resolution for you: Become more cynical and self-absorbed. You weren't wearing your hot and wealthy sandwich board were you, Mom? Oh! Dinner with Rory! How delightful! Well, spit-spot. Alert the corgis. You can't watch. If you're going to throw your life away, he'd better have a motorcycle. There's plenty to do tonight that we can be mortified about tomorrow. My mother is fast asleep in my bed, clutching my Hello Kitty pillow, and yes, I have pictures. Oh yes, it was beautiful in there. We should commemorate it with an oil painting or a severed head or something. So not only did you go to a cop-raided party, but you started the raid? I need caffeine. Whatever form you've got, I haven't had any all day. I'll drink it, shoot it, eat it, snort it, whatever form it's in, gimme. Cheeseburger, onion rings, and a list of people who killed their parents and got away with it. I’m looking for heroes. I love pudding. I worship it. I have a bowl up on the mantel at home with the Virgin Mary, a glass of wine, and a dollar bill next to it. We need you to look at Kirk's butt. He ran into some rose bushes, and he's got some thorns stuck in it, and I thought of you. When I have made one zillion dollars from my rocket gum invention you will eat those words! Or rather you will chew those words and blow a bubble with them. Why is she taking our coats and pouring us drinks? Did you win her in a poker game? Seventy-five thousand dollars? Oh my God, that’s like 150 pairs of Jimmy Choos. Hey, tomorrow, if you have time, I'm planning on despising everyone who says hey, how's it going? There have been very few moments in my life where I have actually wished I had one of those enormous creme pies you can just smash in somebody's face. But this is definitely one of them. Don't let his family see you. Spiders are vindictive. And this was a really big spider. I think it had a gun. My life stinks. Hey, let’s look into each other’s eyes and say I wish I were you at exactly the same time — maybe we’ll pull a Freaky Friday. I stop drinking coffee, I stop doing the standing and the walking and the words-putting-into-sentence doing. It feels… right. Such a long time getting here… sometimes it’s just a journey, you know? I thought I knew exactly what I wanted, where I was going, what I was doing and why I was doing. But lately, things seem hazier. It's all any of us wants, to find a nice person to hang out with until we drop dead. Not a lot to ask! This is America, where we unapologetically bastardize other countries' cultures in a gross quest for moral and military supremacy. He’s like a superhero, but his power is that you can’t remember him no matter how much time you spend with him. Kind of like every Marvel movie ever. It's my life, Rory. I went through all this effort for many, many years making sure people only knew what I wanted them to know, and now you're going to lay it all out in a book? I sat down and it just came out. Flew out. It's like this story has been sitting in my brain for years, taking up space. Life’s been pretty good to you. It was your turn for a few curveballs. Peaks and valleys, kid. If it was physically possible to make love to a hot beverage, this would be the one. As long as everything is exactly the way I want it, I'm totally flexible. Did anyone ever think that maybe Sylvia Plath wasn't crazy, she was just cold? I don't like problems. I avoid them when I can and I don't like people pointing them out to me. I would like a cheeseburger, with a side of cheeseburger, and see if they can make me a cheeseburger smoothie. Hello is the appropriate way to indicate you're open to a social engagement. Unless, however, you're approaching a weasel. Then I believe the proper signal is just to offer him your hindquarters. Everything in my life has something to do with coffee. I believe in a former life, I was coffee. When I think of blistering thirty-degree burns, I also think of my mother. He called me hot plates. He sooooo likes me. Hey, did you know about urine mints?"
 
 //declare global variables
 const k = 2;
@@ -21,6 +21,16 @@ function findUnique(arr) {
   }
   return uniques;
 }
+
+//capitalisation
+//function caps(formattedSentence){
+//  let wordArray = formattedSentence.toLowerCase().split(' ')
+//  let capsArray = wordArray.map(word => {
+//    console.log(word[0].toUpperCase() + word.slice(1))
+//    return word[0].toUpperCase() + word.slice(1)
+//  })
+//  return capsArray.join(' ')
+//}
 
 // to do: map over array of quotes
 // convert to lowercase, split text on spaces and save as array
@@ -115,7 +125,6 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
   let index = Math.floor(Math.random() * uniqueBlockWords.length)
   let randomFirstBlock = []
   randomFirstBlock = uniqueBlockWords[index].slice()
-  //console.log(randomFirstBlock.join('\n')) //////NEW!! printing as string not array 
 
   let sentence = []
   sentence.push(randomFirstBlock.join(" "))
@@ -128,7 +137,7 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
     let weightedArr = []
     transitionMatrix[index].map((probability, i) => {
       if (probability != 0) {
-        for (let j = 1; j <= probability * 10; j++) {
+        for (let j = 1; j <= probability * 100; j++) {
           weightedArr.push(uniqueWords[i])
         }
       }
@@ -140,7 +149,7 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
       valid = 1
       break
     }
-    ///////NEW ends 
+    /////NEW ends 
 
     //choosing nextWord from weightedArr randomly (the weights are included in the array)
     let nextWord = weightedArr[Math.floor(Math.random() * weightedArr.length)]
@@ -169,13 +178,28 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
     //index = uniqueBlockWords.indexOf(randomFirstBlock)
     numberOfWords += 1
   }
-  console.log(sentence.join(" "))
+
+  //sentence formatting (punctuation, spaces, etc)
+  let formattedSentence = sentence.join(" ").replace(/\s*,\s*/g, ", ")
+  let countries = /countries'/g
+  formattedSentence = formattedSentence.replace(/\s*[.]\s*/g, ". ")
+  formattedSentence = formattedSentence.replace(/\s*[!]\s*/g, "! ")
+  formattedSentence = formattedSentence.replace(/\s*[?]\s*/g, "? ")
+  formattedSentence = formattedSentence.replace(/\s*[-]\s*/g, "-")
+  formattedSentence = formattedSentence.replace(/\s*[’]\s*/g, "’")
+  formattedSentence = formattedSentence.replace(/\s*[']\s*/g, "'")
+  formattedSentence = formattedSentence.replace(countries, "countries' ")
+  console.log(formattedSentence)
+
+  //finalSentence = caps(formattedSentence)
+  //console.log('final sentence:', finalSentence)
+
 }
 
 wordArray()
 
-
 // to do:
-// start each quote with a sentence-starting word
-// fix spacing before/after punctuation
+// start each quote with a sentence-starting word (?)
+// have sentences not start with punctuation
+// capitalize first letter of sentence
 // make pretty! 
