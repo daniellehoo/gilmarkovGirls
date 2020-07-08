@@ -25,11 +25,17 @@ function findUnique (arr) {
 
 //capitalisation
 function caps (formattedSentence) {
-  return formattedSentence.replace(/.+?[\.\?\!](\s|$)/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+  // let sentence = formattedSentence.split(' ')
+  // let words = ["i", "i'm", "sylvia", "plath", "rory", "kirk"]
+//   sentence.map((word, index) => {
+//     word == "i" || word =="i'm" || word == "Sylvia" || word == 'Plath' ?  
+//     sentence.join(' ').replace(/\s*[`${word}`]\s*/g, word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+// ) : null
+//   })
+  return formattedSentence.replace(/.+?[\.\?\!](\s|$)/g, function (word) {
+    return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
   })
 
-  // let sentence = formattedSentence.split(' ')
   // let punctuation = [".", "?", "!"]
   // sentence.map((word, index) => {
   //   index == 0 ? sentence[index] = sentence[index][0].toUpperCase() + sentence[index].slice(1) : null
@@ -252,13 +258,20 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
   formattedSentence = formattedSentence.replace(/\s*[.]\s*/g, '. ')
   formattedSentence = formattedSentence.replace(/\s*[!]\s*/g, '! ')
   formattedSentence = formattedSentence.replace(/\s*[?]\s*/g, '? ')
-
+  
+  
   finalSentence = caps(formattedSentence)
+
+  finalSentence = finalSentence.replace(/ i /g, " I ")
+  finalSentence = finalSentence.replace(" i'm ", " I'm ")
+  finalSentence = finalSentence.replace(" friday ", " Friday ")
+  finalSentence = finalSentence.replace(' kirk ', ' Kirk ')
+  finalSentence = finalSentence.replace(' rory ', ' Rory ')
+
   console.log('final sentence:', finalSentence)
 }
 
 wordArray()
 
 // to do:
-// capitalize first letter of sentence
 // make pretty!
