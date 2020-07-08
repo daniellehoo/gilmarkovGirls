@@ -23,14 +23,15 @@ function findUnique(arr) {
 }
 
 //capitalisation
-//function caps(formattedSentence){
-//  let wordArray = formattedSentence.toLowerCase().split(' ')
-//  let capsArray = wordArray.map(word => {
-//    console.log(word[0].toUpperCase() + word.slice(1))
-//    return word[0].toUpperCase() + word.slice(1)
-//  })
-//  return capsArray.join(' ')
-//}
+function caps(formattedSentence){
+  let sentence = formattedSentence.split(' ')
+  let punctuation = [".", "?", "!"]
+  sentence.map((word, index) => {
+    index < sentence.length-1 && punctuation.includes(word) ? sentence[index + 1].charAt(0).toUpperCase() : null
+  })
+  console.log("sentence", sentence)
+  return formattedSentence.charAt(0).toUpperCase() + formattedSentence.slice(1);
+}
 
 // to do: map over array of quotes
 // convert to lowercase, split text on spaces and save as array
@@ -41,10 +42,16 @@ const splitText = quotes.toLowerCase().split(/\s*\b\s*/)
   const uniqueWords = [...new Set(splitText)]
   const blockText = [];
   splitText.map((block, index) => {
-  index <= splitText.length - k ? ///////NEW!!
-  //index <= splitText.length - (k - 1) ?
+  index <= splitText.length - k + 1 ? 
     blockText.push(splitText.slice(index, index+k)) : null
   })
+  //splitText = ["i", "need", "coffee", ".", "extra", "strong", "."]
+  //splitText.slice(0, 0+1) = splitText.slice(0, 1) = ["i"]
+  //splitText.slice(0, 0+2) = splitText.slice(0, 2) = ["i", "need"]
+  //splitText.slice(0, 0+3) = splitText.slice(0, 3) = ["i", "need", "coffee"]
+  //index <= splitText.length - k + 1 = 7 - 2 + 1 = 6
+  //index <= splitText.length - k + 1 = 7 - 3 + 1 = 5
+  //index <= splitText.length - k + 1 = 7 - 1 + 1 = 7
   
   //loop through blockText, and add only unique elements to uniqueBlockWords
   const uniqueBlockWords = findUnique(blockText) //////NEW!!
@@ -77,11 +84,9 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
 
   // SOMETHING WRONG LINES 44-60 !!! 
   for (let x = 0; x < blockText.length - 1; x++) {
-    //console.log("finding the word after", blockText[x])
 
     let nextWordIndex = blockText[blockText.indexOf(blockText[x])+1][1] ////////NEW!!
     //let nextWordIndex = splitText[splitText.indexOf(blockText[x].slice(k-1,k)[0]) + 1] 
-    //console.log("it's", nextWordIndex)
 
     let nextWordColumn = uniqueWords.indexOf(nextWordIndex)
 
@@ -121,10 +126,17 @@ function createTransitionMatrix (splitText, uniqueWords, blockText, uniqueBlockW
 // 4. loop through for desired number of words
 function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
 
-  //choosing a random block to start from 
-  let index = Math.floor(Math.random() * uniqueBlockWords.length)
+  let good_word = 0
   let randomFirstBlock = []
-  randomFirstBlock = uniqueBlockWords[index].slice()
+  let index = 0
+
+  //choosing a random block to start from 
+  while (good_word == 0) {
+    index = Math.floor(Math.random() * uniqueBlockWords.length)
+    let bad_words = ["form", "re", "ve", "ll", "s", "t", "m", ",", "-", ".", "!", "?", ":", ";", "'", "and", "of", "…", "was", "can" ,"’", "has", "eyes", "about", "to", "way", "is", "like", "coats"]
+    randomFirstBlock = uniqueBlockWords[index].slice()
+    bad_words.includes(randomFirstBlock[0]) ? null : good_word = 1
+}
 
   let sentence = []
   sentence.push(randomFirstBlock.join(" "))
@@ -182,24 +194,24 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
   //sentence formatting (punctuation, spaces, etc)
   let formattedSentence = sentence.join(" ").replace(/\s*,\s*/g, ", ")
   let countries = /countries'/g
-  formattedSentence = formattedSentence.replace(/\s*[.]\s*/g, ". ")
-  formattedSentence = formattedSentence.replace(/\s*[!]\s*/g, "! ")
-  formattedSentence = formattedSentence.replace(/\s*[?]\s*/g, "? ")
   formattedSentence = formattedSentence.replace(/\s*[-]\s*/g, "-")
   formattedSentence = formattedSentence.replace(/\s*[’]\s*/g, "’")
   formattedSentence = formattedSentence.replace(/\s*[']\s*/g, "'")
+  formattedSentence = formattedSentence.replace(/\s*[:]\s*/g, ": ")
   formattedSentence = formattedSentence.replace(countries, "countries' ")
-  console.log(formattedSentence)
 
-  //finalSentence = caps(formattedSentence)
+  finalSentence = caps(formattedSentence)
   //console.log('final sentence:', finalSentence)
+
+  formattedSentence = formattedSentence.replace(/\s*[.]\s*/g, ". ")
+  formattedSentence = formattedSentence.replace(/\s*[!]\s*/g, "! ")
+  formattedSentence = formattedSentence.replace(/\s*[?]\s*/g, "? ")
+  //console.log(formattedSentence)
 
 }
 
 wordArray()
 
 // to do:
-// start each quote with a sentence-starting word (?)
-// have sentences not start with punctuation
 // capitalize first letter of sentence
 // make pretty! 

@@ -1,6 +1,6 @@
 {
-    "python.pythonPath": "/usr/local/bin/python3",
     "extensions.ignoreRecommendations": true,
     "files.autoSave": "off",
-    "debug.allowBreakpointsEverywhere": true
+    "debug.allowBreakpointsEverywhere": true,
+    "git.ignoreLimitWarning": true
 }
