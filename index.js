@@ -1,10 +1,8 @@
 // list gilmore girls quotes
-//const quotes =
-//'I need coffee. Extra strong. Double caf. Triple caf. No, forget the caf. Throw in the whole cow and serve it to this man right here!'
-
-
 const quotes =
 "Hey, I have a New Year's resolution for you: Become more cynical and self-absorbed. You weren't wearing your hot and wealthy sandwich board were you, Mom? Oh! Dinner with Rory! How delightful! Well, spit-spot. Alert the corgis. You can't watch. If you're going to throw your life away, he'd better have a motorcycle. There's plenty to do tonight that we can be mortified about tomorrow. My mother is fast asleep in my bed, clutching my Hello Kitty pillow, and yes, I have pictures. Oh yes, it was beautiful in there. We should commemorate it with an oil painting or a severed head or something. So not only did you go to a cop-raided party, but you started the raid? I need caffeine. Whatever form you've got, I haven't had any all day. I'll drink it, shoot it, eat it, snort it, whatever form it's in, gimme. Cheeseburger, onion rings, and a list of people who killed their parents and got away with it. I’m looking for heroes. I love pudding. I worship it. I have a bowl up on the mantel at home with the Virgin Mary, a glass of wine, and a dollar bill next to it. We need you to look at Kirk's butt. He ran into some rose bushes, and he's got some thorns stuck in it, and I thought of you. When I have made one zillion dollars from my rocket gum invention you will eat those words! Or rather you will chew those words and blow a bubble with them. Why is she taking our coats and pouring us drinks? Did you win her in a poker game? Seventy-five thousand dollars? Oh my God, that’s like 150 pairs of Jimmy Choos. Hey, tomorrow, if you have time, I'm planning on despising everyone who says hey, how's it going? There have been very few moments in my life where I have actually wished I had one of those enormous creme pies you can just smash in somebody's face. But this is definitely one of them. Don't let his family see you. Spiders are vindictive. And this was a really big spider. I think it had a gun. My life stinks. Hey, let’s look into each other’s eyes and say I wish I were you at exactly the same time — maybe we’ll pull a Freaky Friday. I stop drinking coffee, I stop doing the standing and the walking and the words-putting-into-sentence doing. It feels… right. Such a long time getting here… sometimes it’s just a journey, you know? I thought I knew exactly what I wanted, where I was going, what I was doing and why I was doing. But lately, things seem hazier. It's all any of us wants, to find a nice person to hang out with until we drop dead. Not a lot to ask! This is America, where we unapologetically bastardize other countries' cultures in a gross quest for moral and military supremacy. He’s like a superhero, but his power is that you can’t remember him no matter how much time you spend with him. Kind of like every Marvel movie ever. It's my life, Rory. I went through all this effort for many, many years making sure people only knew what I wanted them to know, and now you're going to lay it all out in a book? I sat down and it just came out. Flew out. It's like this story has been sitting in my brain for years, taking up space. Life’s been pretty good to you. It was your turn for a few curveballs. Peaks and valleys, kid. If it was physically possible to make love to a hot beverage, this would be the one. As long as everything is exactly the way I want it, I'm totally flexible. Did anyone ever think that maybe Sylvia Plath wasn't crazy, she was just cold? I don't like problems. I avoid them when I can and I don't like people pointing them out to me. I would like a cheeseburger, with a side of cheeseburger, and see if they can make me a cheeseburger smoothie. Hello is the appropriate way to indicate you're open to a social engagement. Unless, however, you're approaching a weasel. Then I believe the proper signal is just to offer him your hindquarters. Everything in my life has something to do with coffee. I believe in a former life, I was coffee. When I think of blistering thirty-degree burns, I also think of my mother. He called me hot plates. He sooooo likes me. Hey, did you know about urine mints?"
+
+const images = ["./images/1.jpg", "./images/2.jpg", "./images/3.jpg", './images/4.jpg', './images/5.jpg']
 
 //declare global variables
 const k = 2
@@ -26,31 +24,9 @@ function findUnique (arr) {
 
 //capitalisation
 function caps (formattedSentence) {
-  // let sentence = formattedSentence.split(' ')
-  // let words = ["i", "i'm", "sylvia", "plath", "rory", "kirk"]
-  //   sentence.map((word, index) => {
-  //     word == "i" || word =="i'm" || word == "Sylvia" || word == 'Plath' ?
-  //     sentence.join(' ').replace(/\s*[`${word}`]\s*/g, word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
-  // ) : null
-  //   })
   return formattedSentence.replace(/.+?[\.\?\!](\s|$)/g, function (word) {
     return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
   })
-
-  // let punctuation = [".", "?", "!"]
-  // sentence.map((word, index) => {
-  //   index == 0 ? sentence[index] = sentence[index][0].toUpperCase() + sentence[index].slice(1) : null
-  //   console.log(punctuation.includes(word))
-  //   punctuation.includes(word) ? sentence[index][0].toUpperCase() + sentence[index].slice(1) : null
-  // })
-  // sentence.join(' ')
-  // console.log(sentence)
-  // return sentence
-  // sentence.map((word, index) => {
-  //   index < sentence.length-1 && punctuation.includes(word) ? sentence[index + 1].charAt(0).toUpperCase() : null
-  // })
-  // console.log("sentence", sentence)
-  // return formattedSentence.charAt(0).toUpperCase() + formattedSentence.slice(1);
 }
 
 // to do: map over array of quotes
@@ -75,9 +51,7 @@ function wordArray () {
   //index <= splitText.length - k + 1 = 7 - 1 + 1 = 7
 
   //loop through blockText, and add only unique elements to uniqueBlockWords
-  const uniqueBlockWords = findUnique(blockText) //////NEW!!
-  //const uniqueBlockWords = [...new Set(blockText)] //this isn't giving us uniqueBlockWords
-
+  const uniqueBlockWords = findUnique(blockText) 
   createTransitionMatrix(splitText, uniqueWords, blockText, uniqueBlockWords)
 }
 
@@ -107,25 +81,18 @@ function createTransitionMatrix (
     }
   }
 
-  // SOMETHING WRONG LINES 44-60 !!!
   for (let x = 0; x < blockText.length - 1; x++) {
-    let nextWordIndex = blockText[blockText.indexOf(blockText[x]) + 1][1] ////////NEW!!
-    //let nextWordIndex = splitText[splitText.indexOf(blockText[x].slice(k-1,k)[0]) + 1]
-
+    let nextWordIndex = blockText[blockText.indexOf(blockText[x]) + 1][1] 
     let nextWordColumn = uniqueWords.indexOf(nextWordIndex)
 
-    ////////// NEW starts
     //finding index of blockText in uniqueBlockWords
     let nextWordRow = -1
-    //let nextWordRow = uniqueBlockWords.indexOf(blockText[x])
     for (let i = 0; i < uniqueBlockWords.length; i++) {
       if (JSON.stringify(uniqueBlockWords[i]) == JSON.stringify(blockText[x])) {
         nextWordRow = i
         break
       }
     }
-    ////////// NEW ends
-
     transitionMatrix[nextWordRow][nextWordColumn]++
   }
 
@@ -207,17 +174,14 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
       }
     })
 
-    //////NEW starts
     //if there are no words to choose from (empty array) end there
     if (weightedArr.length == 0) {
       valid = 1
       break
     }
-    /////NEW ends
 
     //choosing nextWord from weightedArr randomly (the weights are included in the array)
     let nextWord = weightedArr[Math.floor(Math.random() * weightedArr.length)]
-    //console.log(nextWord)
     sentence.push(nextWord)
 
     //if we've reached a good end point and generated enough words, end quote generation
@@ -236,7 +200,6 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
 
     //find the index of the next block in uniqueBlockWords
     for (let i = 0; i < uniqueBlockWords.length; i++) {
-      //if (uniqueBlockWords[i] == randomFirstBlock){
       if (
         JSON.stringify(uniqueBlockWords[i]) == JSON.stringify(randomFirstBlock)
       ) {
@@ -244,7 +207,6 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
         break
       }
     }
-    //index = uniqueBlockWords.indexOf(randomFirstBlock)
     numberOfWords += 1
   }
 
@@ -265,26 +227,42 @@ function chooseNextWords (uniqueWords, uniqueBlockWords, transitionMatrix) {
   finalSentence = finalSentence.replace(/ i /g, ' I ')
   finalSentence = finalSentence.replace(" i'm ", " I'm ")
   finalSentence = finalSentence.replace(" i'll ", " I'll ")
+  finalSentence = finalSentence.replace(' freaky friday', ' Freaky Friday')
   finalSentence = finalSentence.replace(' friday ', ' Friday ')
   finalSentence = finalSentence.replace(' kirk ', ' Kirk ')
-  finalSentence = finalSentence.replace(' rory ', ' Rory ')
+  finalSentence = finalSentence.replace(" kirk's ", " Kirk's ")
+  finalSentence = finalSentence.replace(' rory', ' Rory')
+  finalSentence = finalSentence.replace(' hello kitty ', ' Hello Kitty ')
+  finalSentence = finalSentence.replace(" new year's ", " New Year's ")
+  finalSentence = finalSentence.replace(' sylvia plath', ' Sylvia Plath')
+  finalSentence = finalSentence.replace(' mom ', ' Mom ')
+  finalSentence = finalSentence.replace(' america', ' America')
+  finalSentence = finalSentence.replace(' marvel', ' Marvel')
+  finalSentence = finalSentence.replace(' virgin mary', ' Virgin Mary')
+  finalSentence = finalSentence.replace(' jimmy choos', ' Jimmy Choos')
 
-  console.log('final sentence:', finalSentence)
+  updateText(finalSentence)
+}
 
-    updateText(finalSentence)
-  }
+function getRandomImage(){
+  let image = images[Math.floor(Math.random() * images.length)]
+  return image
+}  
+
 
 let button = document.getElementById('button')
-// console.log(button)
 button.addEventListener("click", wordArray)
 
 function updateText (finalSentence) {
   let paragraph = document.getElementById('para').innerHTML = finalSentence
-  console.log(paragraph)
+  image = getRandomImage()
+  let newImage = document.getElementById('img').src = image
+  console.log(newImage)
 }
 
 wordArray()
 
-
 // to do:
-// make pretty!
+// continue to make pretty 
+// rory and other capitalization fixes
+// deploy!!!
