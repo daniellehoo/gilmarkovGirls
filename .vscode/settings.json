@@ -3,5 +3,5 @@
     "files.autoSave": "off",
     "debug.allowBreakpointsEverywhere": true,
     "git.ignoreLimitWarning": true,
-    "python.pythonPath": "env/bin/python3"
+    "python.pythonPath": "/usr/bin/python"
 }

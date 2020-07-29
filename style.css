@@ -66,6 +66,8 @@ button {
     color: #f2c16d;
     cursor: pointer;
     background-color: #000;
+
+    border: none;
 }
 
 .button-container {
