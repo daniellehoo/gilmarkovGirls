@@ -16,19 +16,12 @@ body {
 h1 {
     font-family: 'Solid Antique Roman', serif;
     font-size: 4rem; 
-    margin: 2rem 0 2rem 0 ;
-    padding: 1rem;
+    margin: 2.5rem 0 0 0;
+    padding: 0;
     background: #f2c16d;
     width: 100vw;
     text-align: center;
     color: #791e10;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 }
 
 .image-container {
@@ -40,11 +33,9 @@ h1 {
 }
 
 img {   
-    width: 30%;
     margin: 0;
     max-height: 50vh;
     border-radius: 5px;
-    /* border: 10px solid #888888; */
 }
 
 .paragraph-container {
@@ -61,7 +52,7 @@ img {
 p {
     font-size: 1.75rem;
     width: 80%;
-    margin: 3rem 0;
+    margin: 0;
     font-family: 'Signika', sans-serif;
     font-weight: 300;
 }
@@ -70,18 +61,20 @@ button {
     font-family: 'Signika', sans-serif;
     padding: .75rem 4rem;
     border-radius: 3px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 300;
-    border: 3px solid black;
     color: #f2c16d;
     cursor: pointer;
-    margin-bottom: 2.5rem;
     background-color: #000;
+}
+
+.button-container {
+    align-self: center;
 }
 
 footer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     font-family: 'Solid Antique Roman', serif;
@@ -89,6 +82,10 @@ footer {
     font-weight: 300;
     font-size: 1.5rem;
     background: #791e10;
-    width: 100vw;
     color: #f2c16d;
+}
+
+footer img {
+    margin: 0 10px;
+    width: 25px;
 }
