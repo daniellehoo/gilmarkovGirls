@@ -35,7 +35,7 @@ h1 {
 img {   
     margin: 0;
     max-height: 50vh;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .paragraph-container {
@@ -85,7 +85,17 @@ footer {
     color: #f2c16d;
 }
 
+footer a {
+    margin: 0 .5rem;
+     color: #f2c16d;
+     text-decoration: none;
+}
+
 footer img {
-    margin: 0 10px;
+    margin: 3px 1px;
     width: 25px;
+}
+
+footer img:hover {
+    transform: scale(1.2);
 }
