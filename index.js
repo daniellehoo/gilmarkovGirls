@@ -6,13 +6,9 @@ const images = [
   './images/1.jpg',
   './images/2.jpg',
   './images/3.jpg',
-  './images/4.jpg',
   './images/5.jpg',
-  './images/6.jpg',
   './images/7.jpg',
-  './images/8.jpg',
   './images/9.jpg',
-  './images/10.jpg',
   './images/11.jpg',
   './images/12.jpg',
   './images/13.jpg',
@@ -275,7 +271,8 @@ let button = document.getElementById('button')
 button.addEventListener("click", wordArray)
 
 function updateText (finalSentence) {
-  let paragraph = document.getElementById('para').innerHTML = finalSentence
+  finalSentence = finalSentence.slice(0, -1)
+  let paragraph = document.getElementById('para').innerHTML = `"${finalSentence}"`
   image = getRandomImage()
   let newImage = document.getElementById('img').src = image
   console.log(newImage)
