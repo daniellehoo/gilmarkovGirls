@@ -266,7 +266,6 @@ function getRandomImage(){
   return image
 }  
 
-
 let button = document.getElementById('button')
 button.addEventListener("click", wordArray)
 
